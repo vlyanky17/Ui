@@ -20,7 +20,7 @@ namespace UITest
         public void ChangeCurrency(string Cr)
         {
             webDriver.Url = Url;
-            IWebElement OnButton = webDriver.FindElement(By.CssSelector("button[data-modal-aria-label='Выберите валюту']"));
+            IWebElement OnButton = webDriver.FindElement(By.CssSelector("button[data-modal-aria-label='Р’С‹Р±РµСЂРёС‚Рµ РІР°Р»СЋС‚Сѓ']"));
             OnButton.Click();
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
             webDriver.FindElement(By.PartialLinkText(Cr)).Click();
@@ -28,7 +28,7 @@ namespace UITest
         public void Autorization(string mail)
         {
             webDriver.Url = Url;
-         webDriver.FindElement(By.LinkText("Войти в аккаунт")).Click();
+         webDriver.FindElement(By.LinkText("Р’РѕР№С‚Рё РІ Р°РєРєР°СѓРЅС‚")).Click();
             webDriver.FindElement(By.CssSelector("input[name='username']")).SendKeys(mail);
             webDriver.FindElement(By.CssSelector("button[class='bui-button bui-button--large bui-button--wide']")).Click();
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
@@ -40,7 +40,7 @@ namespace UITest
         public bool OnFlight()
         {
             webDriver.Url = Url;
-            webDriver.FindElement(By.LinkText("Авиабилеты")).Click();                    
+            webDriver.FindElement(By.LinkText("РђРІРёР°Р±РёР»РµС‚С‹")).Click();                    
          if (webDriver.Url.Substring(0, 25)== "https://booking.kayak.com") { return true; } else { return false; }
         }
 
@@ -63,14 +63,14 @@ namespace UITest
             }
             Back = Back.Substring(0, Back.Length - 1);
             webDriver.Url = Url;
-            IWebElement OnCity = webDriver.FindElement(By.CssSelector("input[placeholder='Куда вы хотите поехать?']"));
+            IWebElement OnCity = webDriver.FindElement(By.CssSelector("input[placeholder='РљСѓРґР° РІС‹ С…РѕС‚РёС‚Рµ РїРѕРµС…Р°С‚СЊ?']"));
             OnCity.SendKeys(City);
             webDriver.FindElement(By.CssSelector("span[class='sb-date-field__icon sb-date-field__icon-btn bk-svg-wrapper calendar-restructure-sb']")).Click();
             webDriver.FindElement(By.CssSelector("td[data-date='"+ There + "']")).Click();
             webDriver.FindElement(By.CssSelector("td[data-date='"+ Back + "']")).Click();
             webDriver.FindElement(By.CssSelector("label[class='xp__input']")).Click();
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
-           webDriver.FindElement(By.CssSelector("button[aria-label='Детей: увеличить количество']")).Click();
+           webDriver.FindElement(By.CssSelector("button[aria-label='Р”РµС‚РµР№: СѓРІРµР»РёС‡РёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ']")).Click();
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             webDriver.FindElement(By.ClassName("xp__button")).Click();
             webDriver.FindElement(By.ClassName("sb-date-field__display")).Click();
@@ -146,7 +146,7 @@ namespace UITest
             DateTime DtBack = DtThere.AddDays(2);
             string There = DtThere.ToShortDateString();
             string Back = DtBack.ToShortDateString();
-         bool Filt=   booking.Filter("Минск", There, Back, 2,1,1);
+         bool Filt=   booking.Filter("РњРёРЅСЃРє", There, Back, 2,1,1);
             if (Filt == true)
             {
                 Assert.Pass();
